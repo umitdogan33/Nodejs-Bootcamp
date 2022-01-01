@@ -1,0 +1,22 @@
+{"level":"error","message":"\"name\" length must be at least 2 characters long","service":"project-service"}
+{"level":"info","message":{"_id":"61bf37ddb13b26b04fa7162d","createdAt":"2021-12-19T13:47:09.504Z","name":"ldadadad","updatedAt":"2021-12-19T13:47:09.504Z"},"service":"project-service"}
+{"level":"error","message":"\"name\" length must be at least 2 characters long","service":"project-service"}
+{"level":"error","message":"\"name\" length must be at least 2 characters long","service":"project-service"}
+{"level":"error","message":"\"name\" length must be at least 2 characters long","service":"project-service"}
+{"level":"info","message":{"_id":"61bf6846dc4a47515026e88a","createdAt":"2021-12-19T17:13:42.918Z","name":"d","updatedAt":"2021-12-19T17:13:42.918Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61bf68e93b8f28bc86518e7e","createdAt":"2021-12-19T17:16:25.506Z","updatedAt":"2021-12-19T17:16:25.506Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61bf694afbf0e3cd4d35001f","createdAt":"2021-12-19T17:18:02.750Z","updatedAt":"2021-12-19T17:18:02.750Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61bf69a1dbebe7709b299b69","createdAt":"2021-12-19T17:19:29.438Z","updatedAt":"2021-12-19T17:19:29.438Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61bf69b53f5c72ab32b1c157","createdAt":"2021-12-19T17:19:49.910Z","updatedAt":"2021-12-19T17:19:49.910Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61bf69e009b02e80428cb0e9","createdAt":"2021-12-19T17:20:32.390Z","updatedAt":"2021-12-19T17:20:32.390Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82a567cc48a868ff3c641","createdAt":"2021-12-26T08:39:51.122Z","name":"ing çalış","updatedAt":"2021-12-26T08:39:51.122Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82aa97cc48a868ff3c645","createdAt":"2021-12-26T08:41:13.280Z","name":"ing çalış","updatedAt":"2021-12-26T08:41:13.280Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82aec8db4a402a5e27a17","createdAt":"2021-12-26T08:42:20.391Z","name":"ing çalış","updatedAt":"2021-12-26T08:42:20.391Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82b7e086621a4ce87d872","createdAt":"2021-12-26T08:44:47.009Z","name":"ing çalış","updatedAt":"2021-12-26T08:44:47.009Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82b9ede627cc6a5f62d72","createdAt":"2021-12-26T08:45:18.948Z","name":"ing çalış","updatedAt":"2021-12-26T08:45:18.948Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82c041efe4af53ddbe074","createdAt":"2021-12-26T08:47:01.183Z","name":"ing çalış","updatedAt":"2021-12-26T08:47:01.183Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82c121efe4af53ddbe076","createdAt":"2021-12-26T08:47:14.261Z","name":"ing çalış","updatedAt":"2021-12-26T08:47:14.261Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82c5c3aa1aab55556bae9","createdAt":"2021-12-26T08:48:28.930Z","name":"ing çalış","updatedAt":"2021-12-26T08:48:28.930Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c82cf90280ff040638d087","createdAt":"2021-12-26T08:51:05.309Z","name":"ing çalış","updatedAt":"2021-12-26T08:51:05.309Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c8450b0280ff040638d089","createdAt":"2021-12-26T10:33:47.993Z","name":"ing çalış","updatedAt":"2021-12-26T10:33:47.993Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
+{"level":"info","message":{"_id":"61c84626b36ce88ee3a71556","createdAt":"2021-12-26T10:38:30.519Z","name":"ing çalış","updatedAt":"2021-12-26T10:38:30.519Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
