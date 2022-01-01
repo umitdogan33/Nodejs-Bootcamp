@@ -1,9 +1,19 @@
 //validation
 //validate middleware
 const express = require("express");
+const validate = require("../middlewares/validate");
+const schemas = require("../validations/Projects");
 const router = express.Router();
-const {create,index} = require("../controllers/Projects");
-router.post("/",create)
-router.get("/",index)
+const authenticeToken = require("../middlewares/authenticate")
+const {create,index,update} = require("../controllers/Projects");
+const getLog = require("../middlewares/getLog");
+const logger = require("../scripts/logger/Project");
+// getLog(logger);
+router.
+    route("/").
+post(authenticeToken,validate(schemas.createValidation,logger),create)
 
-module.exports = {router}
+router.route("/",).get(authenticeToken,index);
+router.route("/:id",).patch(authenticeToken,validate(schemas.updateValidation),update);
+
+module.exports =router;

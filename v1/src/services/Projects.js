@@ -5,10 +5,20 @@ const insert = (projectData) =>{
     return projects.save();
 }
 
-const list = () =>{
-    return Project.find({});
+const  list  = (where) =>{
+    return Project.find({where} || {})
+    .populate({
+        path: "user_id",
+            select: "email full_name"
+        })
 }
+
+const modify = (data,id) =>{
+return Project.findByIdAndUpdate(id,data,{new: true});
+}
+
 module.exports={
     insert,
     list,
+    modify
 }
