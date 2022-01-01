@@ -2,7 +2,7 @@ const eventEmitter = require("./eventEmitter")
 const nodemailer = require("nodemailer");
 
 module.exports = () =>{
-eventEmitter.on("send email",(emailData)=>{
+eventEmitter.on("send_email",(emailData)=>{
     let transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,

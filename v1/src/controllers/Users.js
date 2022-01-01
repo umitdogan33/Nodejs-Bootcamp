@@ -3,8 +3,9 @@ const {insert,list,loginUser,modify} = require("../services/Users");
 const httpStatus = require("http-status");
 const {passwordToHash, generateAccessToken, generateRefreshToken} = require("../scripts/utilities/helper");
 const uuid = require("uuid")
-const eventEmitter = require("../scripts/events/eventEmitter")
-
+const events = require("events")
+const eventEmitter = require("../scripts/events/eventEmitter");
+const nodemailer = require("nodemailer");
 const create  = (req,res) =>{
     req.body.password = passwordToHash(req.body.password)
     insert(req.body).then((response)=>{
@@ -57,24 +58,24 @@ const projectList = (req,res)=>{
 const resetPassword = (req,res)=> {
     const new_password = uuid.v4()?.split("-")[0] || new Date().getTime();
 
-    modify({email:req.body.email},{password:passwordToHash(new_password)}).then((response)=>{
-      if(!response){
-          return res.status(httpStatus.NOT_FOUND).send({error:"böyle bir kullanıcı bulunmamaktadır"})
-      }
+    modify({email: req.body.email}, {password: passwordToHash(new_password)}).then((response) => {
+        if (!response) {
+            return res.status(httpStatus.NOT_FOUND).send({error: "böyle bir kullanıcı bulunmamaktadır"})
+        }
+        console.log("satır 65",req.body.email)
+        eventEmitter.emit("send_email", {
+            // from: response.email
 
-      eventEmitter.emit("send_email",{
-              // from: response.email
-              to: response.body.email,
-              subject: "Şifre Sıfırlama", // Subject line
-              html: `Şifre Sıfırlandı<br/>Yeni Şifre<br/><b>Şifre:${new_password}</b>`, // html body
-          })
-        console.log(response.body.mail)
-        res.status(httpStatus.OK).send("isteğiniz üzerine sıfırlama işlemi oluşmuştur epastaya bak");
-    })
-        .catch((e)=>{
-            res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e)
+            to: res.email,
+            subject: "Şifre Sıfırlama", // Subject line
+            html: `Şifre Sıfırlandı<br/>Yeni Şifre<br/><b>Şifre:${new_password}</b>`, // html body
         })
+        console.log(response.email)
+        res.status(httpStatus.OK).send("isteğiniz üzerine sıfırlama işlemi oluşmuştur epastaya bak");
 
+    }).catch((e)=>{
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e)
+    })
 }
 
 module.exports ={
