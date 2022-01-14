@@ -20,3 +20,4 @@
 {"level":"info","message":{"_id":"61c82cf90280ff040638d087","createdAt":"2021-12-26T08:51:05.309Z","name":"ing çalış","updatedAt":"2021-12-26T08:51:05.309Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
 {"level":"info","message":{"_id":"61c8450b0280ff040638d089","createdAt":"2021-12-26T10:33:47.993Z","name":"ing çalış","updatedAt":"2021-12-26T10:33:47.993Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
 {"level":"info","message":{"_id":"61c84626b36ce88ee3a71556","createdAt":"2021-12-26T10:38:30.519Z","name":"ing çalış","updatedAt":"2021-12-26T10:38:30.519Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
+{"level":"info","message":{"_id":"61dad1784c9c5c1690fc00ef","createdAt":"2022-01-09T12:13:44.035Z","name":"deneme_project","updatedAt":"2022-01-09T12:13:44.035Z","user_id":"61d874bd9d6135dc49e164c2"},"service":"project-service"}

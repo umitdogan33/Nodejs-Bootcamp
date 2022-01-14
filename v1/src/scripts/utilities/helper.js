@@ -5,7 +5,7 @@ const passwordToHash = (password) =>{
 }
 
 const generateAccessToken = (user) =>{
-    return JWT.sign({name:user.full_name, ...user}, process.env.ACCESS_TOKEN_SECRET_KEY,{expiresIn: "1d"} )
+    return JWT.sign({name:user.full_name, ...user}, process.env.ACCESS_TOKEN_SECRET_KEY,{expiresIn: "1w"} )
 }
 
 const generateRefreshToken = (user) =>{

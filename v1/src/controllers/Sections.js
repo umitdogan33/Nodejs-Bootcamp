@@ -1,8 +1,13 @@
-const { insert, list, modify, remove } = require("../services/Projects");
+const { insert, list, modify, remove } = require("../services/Sections");
 const httpStatus = require("http-status");
 
 const index = (req, res) => {
-  list()
+  if(!req?.params?.projectId)
+  {
+    return res.status(httpStatus.BAD_REQUEST).send({error:"projectId parametresi gerekli"});
+  }
+  
+  list({project_id:req.params.projectId})
     .then((response) => {
       res.status(httpStatus.OK).send(response);
     })
@@ -39,7 +44,7 @@ const update = (req, res) => {
     });
 };
 
-const deleteProject = (req, res) => {
+const deleteSection = (req, res) => {
   if (req.params?.id == null) {
     return res
       .status(httpStatus.BAD_REQUEST)
@@ -52,7 +57,6 @@ const deleteProject = (req, res) => {
         res.status(httpStatus.NOT_FOUND).send({ error: "Proje bulunamadı" });
       }
       
-      console.log("delted Project", response);
       res.status(httpStatus.OK).send({ message: "işlem başarılı" });
     })
     .catch((e) => {
@@ -66,5 +70,5 @@ module.exports = {
   create,
   index,
   update,
-  deleteProject,
+  deleteSection,
 };
