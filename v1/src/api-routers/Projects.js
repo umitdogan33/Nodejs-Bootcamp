@@ -5,16 +5,16 @@ const validate = require("../middlewares/validate");
 const schemas = require("../validations/Projects");
 const router = express.Router();
 const authenticeToken = require("../middlewares/authenticate")
-const {create,index,update,deleteProject} = require("../controllers/Projects");
-const getLog = require("../middlewares/getLog");
+const idChecker = require("../middlewares/idChecker");
+// const {create,index,update,deleteProject} = require("../controllers/Projects");
+const ProjectController = require("../controllers/Projects");
 const logger = require("../scripts/logger/Project");
-// getLog(logger);
 router.
     route("/").
-post(authenticeToken,validate(schemas.createValidation,logger),create)
+post(authenticeToken,validate(schemas.createValidation,logger),ProjectController.create);
 
-router.route("/",).get(authenticeToken,index);
-router.route("/:id",).patch(authenticeToken,validate(schemas.updateValidation),update);
-router.route("/:id",).delete(authenticeToken,deleteProject);
+router.route("/",).get(authenticeToken,ProjectController.index);
+router.route("/:id",).patch(idChecker("id"),authenticeToken,validate(schemas.updateValidation),ProjectController.update);
+router.route("/:id",).delete(authenticeToken,idChecker(),ProjectController.deleteProject);
 
 module.exports =router;

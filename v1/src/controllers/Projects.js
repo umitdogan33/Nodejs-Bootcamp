@@ -1,8 +1,11 @@
-const { insert, list, modify, remove } = require("../services/Projects");
+const ProjectService = require("../services/Projects");
 const httpStatus = require("http-status");
+const ApiError = require("../errors/ApiError");
+service = new ProjectService();
 
-const index = (req, res) => {
-  list()
+class Project{
+index(req, res){
+  service.list()
     .then((response) => {
       res.status(httpStatus.OK).send(response);
     })
@@ -12,9 +15,9 @@ const index = (req, res) => {
     });
 };
 
-const create = (req, res) => {
-  req.body.user_id = req.user;
-  insert(req.body)
+create(req, res){
+  req.body.userId = req.user.id;
+  service.insert(req.body)
     .then((response) => {
       res.status(httpStatus.CREATED).send(response);
     })
@@ -23,29 +26,27 @@ const create = (req, res) => {
     });
 };
 
-const update = (req, res) => {
+update(req, res,next){
   if (!req.params?.id) {
-    return res.status(httpStatus.BAD_REQUEST).send({
-      message: "ID Bilgisi eksik",
-    });
+    return next(new ApiError("ID bilgisi eksik", httpStatus.BAD_REQUEST));
   }
 
-  modify(req.body, req.params?.id)
+  service.modify(req.body, req.params?.id)
     .then((response) => {
       res.status(httpStatus.OK).send(response);
     })
     .catch((e) => {
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
+      next(new ApiError(e?.message),e.status);
     });
 };
 
-const deleteProject = (req, res) => {
+deleteProject(req, res){
   if (req.params?.id == null) {
     return res
       .status(httpStatus.BAD_REQUEST)
       .send({ error: "ID bilgisi eksik" });
   }
-  remove(req.params?.id)
+  service.remove(req.params?.id)
     .then((response) => {
 
       if (!response) {
@@ -60,11 +61,6 @@ const deleteProject = (req, res) => {
         .status(httpStatus.INTERNAL_SERVER_ERROR)
         .send("beklenmedik bir hata oluştu");
     });
-};
-
-module.exports = {
-  create,
-  index,
-  update,
-  deleteProject,
-};
+}
+}
+module.exports = new Project();

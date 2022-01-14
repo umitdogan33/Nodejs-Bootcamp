@@ -7,7 +7,7 @@ const loaders = require("./loaders");
 const events = require("./scripts/events/index")
 const getLog = require("./middlewares/getLog");
 const path = require("path");
-
+const errorHandler = require("./middlewares/errorHandler");
 
 config();
 loaders();
@@ -27,17 +27,10 @@ app.listen(process.env.APP_PORT,() => {
     app.use("/sections",sectionRouters);
     app.use("/tasks",TaskRouters);
 
-})
-
-// app.listen(8001,() => {
-//     console.log("sistem2 ayakta");
-//     app.use("/projects",ProjectRouters);
-//     app.use("/users",UserRouters);
-//     app.use("/operationclaims",OperationClaimRouters);
-//     app.use("/useroperationclaims",UserOperationClaimRouters);
-//     app.use("/sections",sectionRouters);
-//     app.use("/tasks",TaskRouters);
-
-// })
-
-
+    app.use((req,res,next)=>{
+    const error = new Error("aradığınız sayfa bulunmamaktadır...");
+    error.status=404;
+    next(error);
+    });
+    app.use(errorHandler)
+});

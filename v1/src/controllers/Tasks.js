@@ -1,8 +1,11 @@
 const { insert, list, modify, remove, findOne } = require("../services/Tasks");
 const httpStatus = require("http-status");
 const mongoose = require("mongoose");
-const index = (req, res) => {
-  list()
+const TaskService = require("../services/Tasks");
+const service = new TaskService();
+class Task{
+ index(req, res){
+  service.list()
     .then((response) => {
       res.status(httpStatus.OK).send(response);
     })
@@ -12,9 +15,9 @@ const index = (req, res) => {
     });
 };
 
-const create = (req, res) => {
+ create(req, res){
   req.body.user_id = req.user;
-  insert(req.body)
+  service.insert(req.body)
     .then((response) => {
       res.status(httpStatus.CREATED).send(response);
     })
@@ -23,14 +26,14 @@ const create = (req, res) => {
     });
 };
 
-const update = (req, res) => {
+ update(req, res){
   if (!req.params?.id) {
     return res.status(httpStatus.BAD_REQUEST).send({
       message: "ID Bilgisi eksik",
     });
   }
 
-  modify(req.body, req.params?.id)
+  service.modify(req.body, req.params?.id)
     .then((response) => {
       res.status(httpStatus.OK).send(response);
     })
@@ -39,13 +42,13 @@ const update = (req, res) => {
     });
 };
 
-const deleteTask = (req, res) => {
+ deleteTask(req, res){
   if (req.params?.id == null) {
     return res
       .status(httpStatus.BAD_REQUEST)
       .send({ error: "ID bilgisi eksik" });
   }
-  remove(req.params?.id)
+  service.remove(req.params?.id)
     .then((response) => {
       if (!response) {
         res.status(httpStatus.NOT_FOUND).send({ error: "Proje bulunamadı" });
@@ -60,8 +63,8 @@ const deleteTask = (req, res) => {
     });
 };
 
-const makeComment = (req, res) => {
-  findOne({ _id: req.params.id })
+ makeComment(req, res){
+  service.findOne({ _id: req.params.id })
     .then((mainTask) => {
       if (!mainTask)
         return res
@@ -95,11 +98,11 @@ const makeComment = (req, res) => {
   req.body.commented_at = new Date();
 };
 
-const deleteComment = (req, res) => {
+ deleteComment(req, res){
   // console.log("taskId",req.params.taskId);
   // console.log("commentId",req.params.commentId);
   // console.log("refactor _id",_id);
-  findOne({ _id: req.params.taskId })
+  service.findOne({ _id: req.params.taskId })
     .then((mainTask) => {
       console.log("öncesi", mainTask.comments);
       console.log(req.params);
@@ -126,8 +129,8 @@ const deleteComment = (req, res) => {
     });
 };
 
-const addSubTask = (req, res) => {
-  findOne({ _id: req.params.id })
+ addSubTask(req, res) {
+  service.findOne({ _id: req.params.id })
     .then((mainTask) => {
       if (!mainTask)
         return res
@@ -135,7 +138,7 @@ const addSubTask = (req, res) => {
           .send({ error: "işlem bulunamadı" });
 
       req.body.user_id = req.user;
-      insert(req.body)
+      service.insert(req.body)
         .then((response) => {
           mainTask.sub_tasks.push(response);
           mainTask
@@ -161,21 +164,13 @@ const addSubTask = (req, res) => {
     
 };
 
-const fetchTask = (req, res) => {
-  findOne({ _id: req.params.id })
+ fetchTask(req, res){
+  service.read({ _id: req.params.id })
     .then((mainTask) => {
     res.status(httpStatus.OK).send(mainTask);
     }).catch((e) => {
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
     });
   }
-module.exports = {
-  create,
-  index,
-  update,
-  deleteTask,
-  makeComment,
-  deleteComment,
-  addSubTask,
-  fetchTask,
-};
+}
+module.exports = new Task();

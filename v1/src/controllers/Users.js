@@ -1,5 +1,4 @@
 const projectService = require("../services/Projects");
-const {insert,list,loginUser,modify,remove} = require("../services/Users");
 const httpStatus = require("http-status");
 const {passwordToHash, generateAccessToken, generateRefreshToken} = require("../scripts/utilities/helper");
 const uuid = require("uuid")
@@ -8,9 +7,12 @@ const path = require("path");
 const eventEmitter = require("../scripts/events/eventEmitter");
 const nodemailer = require("nodemailer");
 const uploadHelper = require("../scripts/utilities/uploads");
-const create  = (req,res) =>{
+const UserService = require("../services/Users");
+const service = new UserService();
+class User{
+create(req,res) {
     req.body.password = passwordToHash(req.body.password)
-    insert(req.body).then((response)=>{
+    service.insert(req.body).then((response)=>{
         res.status(httpStatus.CREATED).send(response)
     })
         .catch((e)=>{
@@ -18,9 +20,9 @@ const create  = (req,res) =>{
         })
 }
 
-const login = (req,res)=>{
+login(req,res){
     req.body.password = passwordToHash(req.body.password)
-    loginUser(req.body).then((response)=>{
+    service.read(req.body).then((response)=>{
         if(!response) return res.status(httpStatus.NOT_FOUND).send({message:"Böyle Bir Kullanıcı Bulunamadı"})
 
         response = {
@@ -39,8 +41,8 @@ const login = (req,res)=>{
         })
 }
 
-const index  = (req,res) =>{
-    list().then((response)=>{
+index(req,res) {
+    service.list().then((response)=>{
         res.status(httpStatus.OK).send(response);
     })
         .catch((e)=>{
@@ -49,17 +51,17 @@ const index  = (req,res) =>{
 
 }
 
-const projectList = (req,res)=>{
-    projectService.list({user_id: req.user?._id}).then((response)=>{
+projectList(req,res){
+    service.list({user_id: req.user?._id}).then((response)=>{
         res.status(httpStatus.OK).send(response)
     }).catch((e)=>{
         res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
     })
 }
 
-const resetPassword = (req,res)=> {
+resetPassword(req,res){
     const new_password = uuid.v4()?.split("-")[0] || new Date().getTime();
-    modify({email: req.body.email}, {password: passwordToHash(new_password)}).then((response) => {
+    service.modify({email: req.body.email}, {password: passwordToHash(new_password)}).then((response) => {
         if (!response) {
             return res.status(httpStatus.NOT_FOUND).send({error: "böyle bir kullanıcı bulunmamaktadır"})
         }
@@ -77,8 +79,8 @@ const resetPassword = (req,res)=> {
     })
 }
 
-const update = (req,res) =>{
-    modify({id:req.user?._id},req.body).then((response)=>{
+update(req,res) {
+    service.modify({id:req.user?._id},req.body).then((response)=>{
         res.status(httpStatus.OK).send(response)
     })
         .catch((e)=>{
@@ -86,12 +88,12 @@ const update = (req,res) =>{
         })
 }
 
-const deleteUser = (req,res) =>{
+deleteUser(req,res){
     if(!req.params?.id){
         res.status(httpStatus.BAD_REQUEST).send("id gönderilmedi");
     }
 
-    remove(req.params?.id).then((response)=>{
+    service.remove(req.params?.id).then((response)=>{
         if(!response){
             res.status(httpStatus.NOT_FOUND).send("böyle bir kullanıcı bulunmamaktadır")
         }
@@ -101,9 +103,9 @@ const deleteUser = (req,res) =>{
     })
 }
 
-const changePassword = (req,res) =>{
+changePassword(req,res) {
     req.body.password = passwordToHash(req.body.password);
-    modify({id:req.user?._id},req.body).then((response)=>{
+    service.modify({id:req.user?._id},req.body).then((response)=>{
         res.status(httpStatus.OK).send(response)
     })
         .catch((e)=>{
@@ -112,7 +114,7 @@ const changePassword = (req,res) =>{
 }
 
 
-const updateProfileImage = (req,res) =>{ 
+updateProfileImage(req,res) { 
     //eski
 //     if(!req?.files?.profile_image){
 //      return res.status(httpStatus.BAD_REQUEST).send("profil resmi gönderilmedi");
@@ -134,7 +136,7 @@ const updateProfileImage = (req,res) =>{
 //yeni
 const filePath = uploadHelper("users",req,res);
 
-modify({_id:req.user._id},{profil_image:filePath}).then((response)=>{
+service.modify({_id:req.user._id},{profil_image:filePath}).then((response)=>{
 res.status(httpStatus.OK).send(response);
 })
 .catch((e)=>{
@@ -142,15 +144,6 @@ res.status(httpStatus.OK).send(response);
 
 })
 }
-
-module.exports ={
-    create,
-    index,   
-    login,
-    projectList,
-    resetPassword,
-    update,
-    deleteUser,
-    changePassword,
-    updateProfileImage,
 }
+
+module.exports =new User();
