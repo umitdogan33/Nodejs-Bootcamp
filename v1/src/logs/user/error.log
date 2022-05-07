@@ -9,3 +9,30 @@
 {"level":"error","message":"\"full_name\" is required","service":"user-service"}
 {"level":"error","message":"\"full_name\" is required","service":"user-service"}
 {"level":"error","message":"\"full_name\" is required","service":"user-service"}
+{"level":"error","message":"\"full_name\" is required","service":"user-service"}
+{"level":"error","message":"\"full_name\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claims\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claim\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claim\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claim\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"claim\" is not allowed","service":"user-service"}
+{"level":"error","message":"\"full_name\" is required","service":"user-service"}
+{"level":"error","message":"\"full_name\" is not allowed","service":"user-service"}

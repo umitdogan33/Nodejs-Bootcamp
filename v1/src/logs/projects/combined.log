@@ -25,3 +25,17 @@
 {"level":"info","message":{"_id":"61c84626b36ce88ee3a71556","createdAt":"2021-12-26T10:38:30.519Z","name":"ing çalış","updatedAt":"2021-12-26T10:38:30.519Z","user_id":"61bf7fec07dcff52147f1357"},"service":"project-service"}
 {"level":"info","message":{"_id":"61dad1784c9c5c1690fc00ef","createdAt":"2022-01-09T12:13:44.035Z","name":"deneme_project","updatedAt":"2022-01-09T12:13:44.035Z","user_id":"61d874bd9d6135dc49e164c2"},"service":"project-service"}
 {"level":"info","message":{"_id":"61e1d9a47a500b37c16ecb13","createdAt":"2022-01-14T20:14:28.106Z","name":"deneme2_project","updatedAt":"2022-01-14T20:14:28.106Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e273792f1a58c5b9f43971","createdAt":"2022-01-15T07:10:49.308Z","name":"deneme2_project","updatedAt":"2022-01-15T07:10:49.308Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e2770dc0c11b5a4fdaf7ab","createdAt":"2022-01-15T07:26:05.070Z","name":"deneme_project","updatedAt":"2022-01-15T07:26:05.070Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e277f9135196d895e5f9be","createdAt":"2022-01-15T07:30:01.610Z","name":"deneme_project","updatedAt":"2022-01-15T07:30:01.610Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e278080e7531f80a7b70b0","createdAt":"2022-01-15T07:30:16.686Z","name":"deneme_project","updatedAt":"2022-01-15T07:30:16.686Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e2780a0e7531f80a7b70b2","createdAt":"2022-01-15T07:30:18.292Z","name":"deneme_project","updatedAt":"2022-01-15T07:30:18.292Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27815012f24ddf2dc29cb","createdAt":"2022-01-15T07:30:29.490Z","name":"deneme_project","updatedAt":"2022-01-15T07:30:29.490Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e2783b0fc72d35fb8919a5","createdAt":"2022-01-15T07:31:07.966Z","name":"deneme_project","updatedAt":"2022-01-15T07:31:07.966Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27cf3d13274074249d4cc","createdAt":"2022-01-15T07:51:15.965Z","name":"deneme_project","updatedAt":"2022-01-15T07:51:15.965Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27d6344b900d4c188102a","createdAt":"2022-01-15T07:53:07.803Z","name":"deneme_project","updatedAt":"2022-01-15T07:53:07.803Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27dc4d887be28c17fa04d","createdAt":"2022-01-15T07:54:44.383Z","name":"deneme_project","updatedAt":"2022-01-15T07:54:44.383Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27dfd467677e7f611b557","createdAt":"2022-01-15T07:55:41.248Z","name":"deneme_project","updatedAt":"2022-01-15T07:55:41.248Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27e46c7bf6829d597b25a","createdAt":"2022-01-15T07:56:54.591Z","name":"deneme_project","updatedAt":"2022-01-15T07:56:54.591Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e27fb75f1951df60a818b3","createdAt":"2022-01-15T08:03:03.328Z","name":"deneme_project","updatedAt":"2022-01-15T08:03:03.328Z"},"service":"project-service"}
+{"level":"info","message":{"_id":"61e281decfa1cfcc000a75bd","createdAt":"2022-01-15T08:12:14.427Z","name":"deneme_project","updatedAt":"2022-01-15T08:12:14.427Z"},"service":"project-service"}

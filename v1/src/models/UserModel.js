@@ -5,6 +5,7 @@ const UserSchema = new Mongoose.Schema({
     password:String,
     email: String,
     profil_image:String,
+    roles: [String],
 },{timestamps:true,versionKey:false})
 
 // ProjectSchema.pre("save",(next,doc)=>{

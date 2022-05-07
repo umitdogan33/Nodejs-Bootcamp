@@ -1,4 +1,4 @@
-let BaseModel = null;
+ let BaseModel = null;
 class BaseService{
 constructor(model){
     this.BaseModel = model;

@@ -8,7 +8,7 @@ db.once("open",() =>{
 
 
 const  connectDb = async() => {
-    await Mongoose.connect('mongodb://127.0.0.1:27017/asana',{
+    await Mongoose.connect('mongodb://localhost:27017/asana',{
         useNewUrlParser : true,
         useUnifiedTopology:true,
     })
